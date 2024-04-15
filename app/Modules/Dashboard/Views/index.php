@@ -10,7 +10,7 @@
             ...
         </div>
         <div class="card-footer">
-            <a href="#" class="btn btn-primary"> Grupos y permisos</a>
+            <a href="<?= route_to('usuario.show', $key->id)?>" class="btn btn-primary"> Grupos y permisos</a>
         </div>
     </div>
 
