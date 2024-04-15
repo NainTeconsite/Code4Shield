@@ -10,9 +10,23 @@ class Base extends BaseController
     protected $content = 'Base';
     protected $viewPath = '';
 
+    protected $permision = '';
+    protected $userMustAuth = false;
+
+
+
     function new()
     {
-        echo view('App\Modules\\'.$this->viewPath.'\Views\new', [
+        if ($this->userMustAuth) {
+            if (auth()->loggedIn()) {
+                if (auth()->user()->can($this->permision)) {
+
+                } else
+                    return redirect()->to('/');
+            } else
+                return redirect()->to('/');
+        }
+        echo view('App\Modules\\' . $this->viewPath . '\Views\new', [
             'title' => $this->title,
             'content' => $this->content
 
@@ -20,7 +34,17 @@ class Base extends BaseController
     }
     function create()
     {
-        echo view('App\Modules\\'.$this->viewPath.'\Views\create', [
+        if ($this->userMustAuth) {
+            if (auth()->loggedIn()) {
+                if (auth()->user()->can($this->permision)) {
+
+                } else
+                    return redirect()->to('/');
+            } else
+                return redirect()->to('/');
+        }
+
+        echo view('App\Modules\\' . $this->viewPath . '\Views\create', [
             'title' => $this->title,
             'content' => $this->content
 
@@ -28,7 +52,17 @@ class Base extends BaseController
     }
     function edit()
     {
-        echo view('App\Modules\\'.$this->viewPath.'\Views\edit', [
+        if ($this->userMustAuth) {
+            if (auth()->loggedIn()) {
+                if (auth()->user()->can($this->permision)) {
+
+                } else
+                    return redirect()->to('/');
+            } else
+                return redirect()->to('/');
+        }
+
+        echo view('App\Modules\\' . $this->viewPath . '\Views\edit', [
             'title' => $this->title,
             'content' => $this->content
 
@@ -36,7 +70,17 @@ class Base extends BaseController
     }
     function update()
     {
-        echo view('App\Modules\\'.$this->viewPath.'\Views\update', [
+        if ($this->userMustAuth) {
+            if (auth()->loggedIn()) {
+                if (auth()->user()->can($this->permision)) {
+
+                } else
+                    return redirect()->to('/');
+            } else
+                return redirect()->to('/');
+        }
+
+        echo view('App\Modules\\' . $this->viewPath . '\Views\update', [
             'title' => $this->title,
             'content' => $this->content
 
@@ -44,7 +88,17 @@ class Base extends BaseController
     }
     function delete()
     {
-        echo view('App\Modules\\'.$this->viewPath.'\Views\delete', [
+        if ($this->userMustAuth) {
+            if (auth()->loggedIn()) {
+                if (auth()->user()->can($this->permision)) {
+
+                } else
+                    return redirect()->to('/');
+            } else
+                return redirect()->to('/');
+        }
+
+        echo view('App\Modules\\' . $this->viewPath . '\Views\delete', [
             'title' => $this->title,
             'content' => $this->content
 
@@ -53,7 +107,17 @@ class Base extends BaseController
 
     function index()
     {
-        echo view('App\Modules\\'.$this->viewPath.'\Views\index', [
+        if ($this->userMustAuth) {
+            if (auth()->loggedIn()) {
+                if (auth()->user()->can($this->permision)) {
+
+                } else
+                    return redirect()->to('/');
+            } else
+                return redirect()->to('/');
+        }
+
+        echo view('App\Modules\\' . $this->viewPath . '\Views\index', [
             'title' => $this->title,
             'content' => $this->content
         ]);

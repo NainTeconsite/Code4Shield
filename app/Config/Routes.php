@@ -9,6 +9,7 @@ $routes->get('/', 'Home::index');
 
 service('auth')->routes($routes);
 
+$routes->get('other', '\App\Modules\Other\Controller\Other::contact');
 $routes->group('user',  function ($routes){
     $routes->presenter('regular',['namespace' => 'App\Modules\Regular\Controller']);
     $routes->presenter('other',['namespace' => 'App\Modules\Other\Controller']);
